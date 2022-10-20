@@ -4,6 +4,7 @@ import { PlayerComponent } from './player/player.component';
 import { BackgroundComponent } from './background/background.component';
 import { SettingsComponent } from './settings/settings.component';
 import { RandomizerComponent } from './randomizer.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { RandomizerComponent } from './randomizer.component';
     RandomizerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     RandomizerComponent

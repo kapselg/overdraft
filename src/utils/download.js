@@ -215,45 +215,10 @@ const heroes = {
 }
 const roles = {
   support: [
-    "ana",
-    "baptiste",
-    "brigitte",
-    "kiriko",
-    "lucio",
-    "mercy",
-    "moira",
-    "zenyatta",
   ],
   dps: [
-    "ashe",
-    "bastion",
-    "cassidy",
-    "echo",
-    "genji",
-    "hanzo",
-    "junkrat",
-    "mei",
-    "pharah",
-    "reaper",
-    "soldier",
-    "sojourn",
-    "sombra",
-    "symmetra",
-    "torbjorn",
-    "tracer",
-    "widowmaker",
   ],
   tank: [
-    "dva",
-    "doomfist",
-    "queen",
-    "orisa",
-    "reinhardt",
-    "roadhog",
-    "sigma",
-    "winston",
-    "ball",
-    "zarya",
   ],
 };
 const images = [
@@ -347,5 +312,8 @@ function assignRoles() {
     roleHeroes.forEach((roleHero) => (heroes[roleHero].role = roleName))
   );
 }
-assignRoles()
-console.log(heroes);
+function assignHeroesToRoles(){
+  Object.values(heroes).forEach(hero=>roles[hero.role].push(hero));
+}
+assignHeroesToRoles();
+console.log(roles);

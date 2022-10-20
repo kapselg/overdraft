@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Hero, Role } from 'src/utils/types';
 import { heroes, roles } from 'src/utils/heroInfo';
 import { RandomizerService } from '../randomizer.service';
@@ -10,10 +10,12 @@ import { RandomizerService } from '../randomizer.service';
   styleUrls: ['./player.component.scss'],
 })
 export class PlayerComponent implements OnInit {
-  constructor(private randomService: RandomizerService) {
-    this.hero = this.randomService.randomHero(Object.values(heroes));
-    this._role = this.hero.role;
-  }
+  constructor(private randomService: RandomizerService) {}
+
+  @Input() hero!: Hero;
+  @Input() index!: number;
+
+  player: string = '';
 
   roleIcons = {
     tank: 'assets/tank.svg',
@@ -22,13 +24,8 @@ export class PlayerComponent implements OnInit {
     any: 'assets/any.svg',
   };
 
-  hero!: Hero;
-  private _role: Role = 'dps';
-
-  get role(): Role {
-    return this._role ? this._role : this.hero.role;
+  ngOnInit(): void {
+    this.player = `P${this.index}`
   }
-
-  ngOnInit(): void {}
 
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { heroes } from 'src/utils/heroInfo';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { heroes, roles } from 'src/utils/heroInfo';
 import { Hero, Layout, Role } from 'src/utils/types';
 
 @Injectable({
@@ -9,14 +10,27 @@ export class RandomizerService {
 
   constructor() { }
 
-  randomHero(heroArr: Hero[]){
+  heroes = new Subject<Hero[]>();
+  singleMode = new BehaviorSubject<boolean>(true);
+
+  randomHero(heroArr: Hero[]): Hero{
     return heroArr[Math.floor(Math.random() * heroArr.length)];
   }
 
-  generateDeck(layout: Layout = '1-2-2'): Hero[]{
-    if(layout == '1-2-2'){
-      return new Array(5).fill('').map(() => this.randomHero(Object.values(heroes)))
-    }
-    return [];
+  generateOne(){
+    return heroes[Math.floor(Object.keys(heroes).length * Math.random())];
+  }
+
+  generateDeck(){
+      const result: Hero[] = new Array(5);
+      let skipIndex = 0;
+
+      result[0] = this.randomHero(roles.tank);
+      result[1] = this.randomHero(roles.dps);
+      result[2] = this.randomHero([...roles.dps].filter(hero => hero.name !== result[1].name));
+      result[3] = this.randomHero(roles.support);
+      result[4] = this.randomHero([...roles.support].filter(hero => hero.name !== result[3].name));
+
+      this.heroes.next(result);
   }
 }
