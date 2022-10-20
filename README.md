@@ -1,27 +1,16 @@
-# OvRandom
+# OV Random (work-in-progress name: Overdraft)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+Simple hero picker for Overwatch 2. This app allows for picking one hero, five in 1-2-2 competitive formation or in a custom, user-defined formation.
 
-## Development server
+## How to use
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+It's a regular Angular CLI generated project so as always:
+1. `npm install`
+2. `npm serve`
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+or
+1. `npm install`
+2. `npm build`
+3. Host files located in the /dist directory on your preffered HTTP server.
+---
+>This project is not affilated with Activision Blizzard. It is completely free to use and does not contain any income generating features.
