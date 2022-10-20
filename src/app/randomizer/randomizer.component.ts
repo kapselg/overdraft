@@ -13,8 +13,8 @@ export class RandomizerComponent implements OnInit {
   multiple = this.randomService.singleMode;
   heroes!: Hero[];
   ngOnInit(): void {
-    this.randomService.heroes.subscribe(heroes => this.heroes = heroes)
-    this.randomService.setupConfigurator();
+    this.randomService.heroes.subscribe(heroes => this.heroes = heroes);
+    this.randomService.generateOne();
   }
 
 }

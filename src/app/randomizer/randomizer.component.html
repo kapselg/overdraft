@@ -1,7 +1,7 @@
 <app-settings></app-settings>
 <app-background></app-background>
 <div class="flex justify-evenly absolute top-1/2 transfrom -translate-y-1/2 w-full">
-  <app-player [hero]="this.heroes[0]" *ngIf="this.heroes[0]" [index]="1"></app-player>
+  <app-player [hero]="this.heroes[0]" [index]="1"></app-player>
   <ng-container *ngIf="this.heroes.length > 1">
     <app-player [hero]="this.heroes[1]" [index]="2"></app-player>
     <app-player [hero]="this.heroes[2]" [index]="3"></app-player>

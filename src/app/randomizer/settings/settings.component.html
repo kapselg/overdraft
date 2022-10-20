@@ -5,8 +5,10 @@
       <span class="text-6xl"><i>OVER</i><i class="text-blue-600">DRAFT</i></span>
       <span class="text-lg ml-3">Random hero picker for Overwatch 2</span></h1>
     <div class="absolute left-0 top-0 text-xl"></div>
-    <button class="button" (click)="this.randomService.generateOne()">One random hero</button>
-    <button class="button button-shadow appearance-none opacity-60 cursor-not-allowed pointer-events-none">
+    <button class="button" (click)="this.randomService.generateOne()">
+      One random hero
+    </button>
+    <button class="button" (click)="this.randomService.setupConfigurator()">
       5v5 configurator
     </button>
     <button class="button button-shadow appearance-none" (click)="this.randomService.generateDeck()">

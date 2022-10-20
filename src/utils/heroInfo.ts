@@ -1,6 +1,6 @@
-import { Hero } from './types';
+import { Hero } from "./types";
 
-export const heroes: { [key: string]: Hero } = {
+export const heroes: {[key: string]: Hero} = {
   dva: {
     name: 'D.Va',
     image: '/assets/dva-avatar.png',
@@ -213,221 +213,221 @@ export const heroes: { [key: string]: Hero } = {
   },
 };
 
-export const roles: { support: Hero[]; dps: Hero[]; tank: Hero[] } = {
+export const roles: {support: Hero[], dps: Hero[], tank: Hero[]} = {
   support: [
     {
       name: 'Ana',
       image: '/assets/ana-avatar.png',
       background: '',
-      role: 'support',
+      role: 'support'
     },
     {
       name: 'Baptiste',
       image: '/assets/baptiste-avatar.png',
       background: '',
-      role: 'support',
+      role: 'support'
     },
     {
       name: 'Brigitte',
       image: '/assets/brigitte-avatar.png',
       background: '',
-      role: 'support',
+      role: 'support'
     },
     {
       name: 'Kiriko',
       image: '/assets/kiriko-avatar.png',
       background: '',
-      role: 'support',
+      role: 'support'
     },
     {
       name: 'Lúcio',
       image: '/assets/lucio-avatar.png',
       background: '',
-      role: 'support',
+      role: 'support'
     },
     {
       name: 'Mercy',
       image: '/assets/mercy-avatar.png',
       background: '',
-      role: 'support',
+      role: 'support'
     },
     {
       name: 'Moira',
       image: '/assets/moira-avatar.png',
       background: '',
-      role: 'support',
+      role: 'support'
     },
     {
       name: 'Zenyatta',
       image: '/assets/zenyatta-avatar.png',
       background: '',
-      role: 'support',
-    },
+      role: 'support'
+    }
   ],
   dps: [
     {
       name: 'Ashe',
       image: '/assets/ashe-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Bastion',
       image: '/assets/bastion-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Cassidy',
       image: '/assets/cassidy-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Echo',
       image: '/assets/echo-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Genji',
       image: '/assets/genji-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Hanzo',
       image: '/assets/hanzo-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Junkrat',
       image: '/assets/junkrat-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Mei',
       image: '/assets/mei-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Pharah',
       image: '/assets/pharah-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Reaper',
       image: '/assets/reaper-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Soldier: 76',
       image: '/assets/soldier-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Sojourn',
       image: '/assets/sojourn-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Sombra',
       image: '/assets/sombra-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Symmetra',
       image: '/assets/symmetra-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Torbjörn',
       image: '/assets/torbjorn-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Tracer',
       image: '/assets/tracer-avatar.png',
       background: '',
-      role: 'dps',
+      role: 'dps'
     },
     {
       name: 'Widowmaker',
       image: '/assets/widowmaker-avatar.png',
       background: '',
-      role: 'dps',
-    },
+      role: 'dps'
+    }
   ],
   tank: [
     {
       name: 'D.Va',
       image: '/assets/dva-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Doomfist',
       image: '/assets/doomfist-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Junker Queen',
       image: '/assets/queen-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Orisa',
       image: '/assets/orisa-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Reinhardt',
       image: '/assets/reinhardt-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Roadhog',
       image: '/assets/roadhog-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Sigma',
       image: '/assets/sigma-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Winston',
       image: '/assets/winston-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Wrecking Ball',
       image: '/assets/ball-avatar.png',
       background: '',
-      role: 'tank',
+      role: 'tank'
     },
     {
       name: 'Zarya',
       image: '/assets/zarya-avatar.png',
       background: '',
-      role: 'tank',
-    },
-  ],
-};
+      role: 'tank'
+    }
+  ]
+}

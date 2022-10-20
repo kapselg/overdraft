@@ -1,4 +1,4 @@
-<div class="absolute bottom-10 w-full flex justify-center [&>button]:text-3xl">
-  <button class="button bg-white">draft heroes</button>
-  <button class="button bg-red-400" (click)="this.randomService.setupConfigurator()">clear</button>
+<div class="absolute bottom-10 w-full flex justify-center [&>button]:text-3xl" *ngIf="this.randomService.controls | async">
+  <button class="button bg-white" (click)="this.randomService.runConfigurator()">draft heroes</button>
+  <button class="button bg-red-400" (click)="this.randomService.setupConfigurator()" *ngIf="!(this.randomService.configuratorMode | async)">clear</button>
 </div>
