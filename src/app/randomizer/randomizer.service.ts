@@ -24,12 +24,13 @@ export class RandomizerService {
   }
 
   generateOne(){
-    return heroes[Math.floor(Object.keys(heroes).length * Math.random())];
+    const newHeroes = new Array();
+    newHeroes[0] = this.randomHero(Object.values(heroes));
+    this.heroes.next(newHeroes);
   }
 
   generateDeck(){
       const result: Hero[] = new Array(5);
-      let skipIndex = 0;
 
       result[0] = this.randomHero(roles.tank);
       result[1] = this.randomHero(roles.dps);
