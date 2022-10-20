@@ -14,6 +14,7 @@ export class RandomizerComponent implements OnInit {
   heroes!: Hero[];
   ngOnInit(): void {
     this.randomService.heroes.subscribe(heroes => this.heroes = heroes)
+    this.randomService.setupConfigurator();
   }
 
 }

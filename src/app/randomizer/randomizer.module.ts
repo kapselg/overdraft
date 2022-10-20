@@ -5,6 +5,7 @@ import { BackgroundComponent } from './background/background.component';
 import { SettingsComponent } from './settings/settings.component';
 import { RandomizerComponent } from './randomizer.component';
 import { FormsModule } from '@angular/forms';
+import { ControlsComponent } from './controls/controls.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     PlayerComponent    ,
     BackgroundComponent,
     SettingsComponent  ,
-    RandomizerComponent
+    RandomizerComponent,
+    ControlsComponent
   ],
   imports: [
     CommonModule,

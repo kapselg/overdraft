@@ -11,10 +11,16 @@ export class RandomizerService {
   constructor() { }
 
   heroes = new Subject<Hero[]>();
+  roles = new Subject<Role[]>();
   singleMode = new BehaviorSubject<boolean>(true);
+  configuratorMode = new BehaviorSubject<boolean>(false);
 
   randomHero(heroArr: Hero[]): Hero{
     return heroArr[Math.floor(Math.random() * heroArr.length)];
+  }
+
+  setupConfigurator(){
+    this.roles.next(new Array(3).fill('any'))
   }
 
   generateOne(){

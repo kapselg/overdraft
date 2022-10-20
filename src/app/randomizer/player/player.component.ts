@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Hero, Role } from 'src/utils/types';
 import { heroes, roles } from 'src/utils/heroInfo';
 import { RandomizerService } from '../randomizer.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class PlayerComponent implements OnInit {
 
   @Input() hero!: Hero;
   @Input() index!: number;
+  configurator!: boolean;
+  role: Role = 'any';
 
   player: string = '';
 
@@ -23,9 +26,10 @@ export class PlayerComponent implements OnInit {
     dps: 'assets/dps.svg',
     any: 'assets/any.svg',
   };
-
   ngOnInit(): void {
-    this.player = `P${this.index}`
+    this.player = `P${this.index}`;
+    this.randomService.configuratorMode.subscribe(val => this.configurator = val);
+    this.randomService.roles.subscribe(val => this.role = val[this.index]);
   }
 
 }

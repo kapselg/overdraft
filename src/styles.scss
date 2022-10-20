@@ -7,3 +7,6 @@
   font-family: bignoodletitling;
 }
 
+.button{
+  @apply m-2 py-2 px-4 flex rounded-md whitespace-nowrap text-gray-700 hover:scale-95 transition-all ease-in duration-[50ms] hover:shadow-button
+}
