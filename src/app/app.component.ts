@@ -12,4 +12,4 @@ export class AppComponent {
 //TODO: allow selecting multiple roles in configurator
 //TODO: routing
 //TODO: mobile responsiveness
-
+//TODO: preload with loading bar https://stackblitz.com/edit/angular-preload-images?file=src%2Fapp%2Fapp.component.ts

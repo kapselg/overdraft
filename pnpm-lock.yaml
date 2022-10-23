@@ -12,6 +12,7 @@ specifiers:
   '@angular/platform-browser': ~13.3.0
   '@angular/platform-browser-dynamic': ~13.3.0
   '@angular/router': ~13.3.0
+  '@tailwindcss/forms': ^0.5.3
   '@types/jasmine': ~3.10.0
   '@types/node': ^12.11.1
   autoprefixer: ^10.4.12
@@ -37,6 +38,7 @@ dependencies:
   '@angular/platform-browser': 13.3.11_dontfr2itdbwnai2bloqfkk3ui
   '@angular/platform-browser-dynamic': 13.3.11_ovunbf5pfqpgs344qovmyresle
   '@angular/router': 13.3.11_s6ofle4rnazb4kwevmg47377ym
+  '@tailwindcss/forms': 0.5.3_tailwindcss@3.1.8
   autoprefixer: 10.4.12_postcss@8.4.18
   postcss: 8.4.18
   rxjs: 7.5.7
@@ -1823,6 +1825,15 @@ packages:
   /@socket.io/component-emitter/3.1.0:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
+
+  /@tailwindcss/forms/0.5.3_tailwindcss@3.1.8:
+    resolution: {integrity: sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.1.8_postcss@8.4.18
+    dev: false
 
   /@tootallnate/once/1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
@@ -4898,6 +4909,11 @@ packages:
       schema-utils: 4.0.0
       webpack: 5.70.0_esbuild@0.14.22
     dev: true
+
+  /mini-svg-data-uri/1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
+    dev: false
 
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}

@@ -1,12 +1,9 @@
-<app-settings></app-settings>
-<app-background></app-background>
-<div class="flex justify-evenly absolute top-1/2 transfrom -translate-y-1/2 w-full">
-  <app-player [hero]="this.heroes[0]" [index]="1"></app-player>
-  <ng-container *ngIf="this.heroes.length > 1">
-    <app-player [hero]="this.heroes[1]" [index]="2"></app-player>
-    <app-player [hero]="this.heroes[2]" [index]="3"></app-player>
-    <app-player [hero]="this.heroes[3]" [index]="4"></app-player>
-    <app-player [hero]="this.heroes[4]" [index]="5"></app-player>
+<div class="flex justify-evenly absolute top-1/2 transfrom -translate-y-1/2 w-full z-0">
+  <ng-container *ngFor="let hero of this.heroes; let i = index">
+    <app-player *ngIf="this.heroes.length > i" [hero]="hero" [index]="i"></app-player>
   </ng-container>
 </div>
+<app-settings></app-settings>
+<app-background></app-background>
+
 <app-controls></app-controls>

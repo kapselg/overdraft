@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Hero, Role } from 'src/utils/types';
-import { heroes, roles } from 'src/utils/heroInfo';
+import { heroesList } from 'src/utils/heroInfo';
 import { RandomizerService } from '../randomizer.service';
 import { map, Observable } from 'rxjs';
 
@@ -33,7 +33,7 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.player = `P${this.index}`;
+    this.player = `P${this.index+1}`;
     this.randomService.configuratorMode.subscribe(val => {this.configurator = val; if(val) this.selectedRole = 'any'});
   }
 

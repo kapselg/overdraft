@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { heroes, roles } from 'src/utils/heroInfo';
+import { heroesArr, heroesList } from 'src/utils/heroInfo';
 import { Hero, Layout, Role } from 'src/utils/types';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class RandomizerService {
   setupConfigurator() {
     this.controls.next(true);
     this.roles = new Array(5).fill('any');
-    this.heroes.next(new Array(6).fill(''));
+    this.heroes.next(new Array(5).fill(''));
     this.configuratorMode.next(true);
   }
 
@@ -50,12 +50,12 @@ export class RandomizerService {
       if (desiredRole === 'any') {
         //pick from all roles if any
         result = this.randomHero(
-          Object.values(heroes).filter((hero) => checkAlreadyUsed(hero))
+          Object.values(heroesArr(heroesList)).filter((hero) => checkAlreadyUsed(hero))
         );
       } else {
-        //otherwise pick from deisred role
+        //otherwise pick from desired role
         result = this.randomHero(
-          [...roles[desiredRole]].filter((hero) => checkAlreadyUsed(hero))
+          [...heroesList[desiredRole]].filter((hero) => checkAlreadyUsed(hero))
         );
       }
       alreadyUsedHeroes.push(result);
@@ -75,7 +75,7 @@ export class RandomizerService {
     this.clear();
     const newHeroes = new Array();
 
-    newHeroes[0] = this.randomHero(Object.values(heroes));
+    newHeroes[0] = this.randomHero(heroesArr(heroesList));
 
     this.heroes.next(newHeroes);
   }
@@ -84,14 +84,14 @@ export class RandomizerService {
     this.clear();
     const result: Hero[] = new Array();
 
-    result[0] = this.randomHero(roles.tank);
-    result[1] = this.randomHero(roles.dps);
+    result[0] = this.randomHero(heroesList.tank);
+    result[1] = this.randomHero(heroesList.dps);
     result[2] = this.randomHero(
-      [...roles.dps].filter((hero) => hero.name !== result[1].name)
+      [...heroesList.dps].filter((hero) => hero.name !== result[1].name)
     );
-    result[3] = this.randomHero(roles.support);
+    result[3] = this.randomHero(heroesList.support);
     result[4] = this.randomHero(
-      [...roles.support].filter((hero) => hero.name !== result[3].name)
+      [...heroesList.support].filter((hero) => hero.name !== result[3].name)
     );
 
     this.heroes.next(result);

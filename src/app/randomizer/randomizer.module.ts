@@ -4,8 +4,9 @@ import { PlayerComponent } from './player/player.component';
 import { BackgroundComponent } from './background/background.component';
 import { SettingsComponent } from './settings/settings.component';
 import { RandomizerComponent } from './randomizer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ControlsComponent } from './controls/controls.component';
+import { HeroListComponent } from './settings/hero-list/hero-list.component';
 
 
 
@@ -15,11 +16,13 @@ import { ControlsComponent } from './controls/controls.component';
     BackgroundComponent,
     SettingsComponent  ,
     RandomizerComponent,
-    ControlsComponent
+    ControlsComponent,
+    HeroListComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     RandomizerComponent

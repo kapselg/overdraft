@@ -1,0 +1,19 @@
+<button class="button text-center text-3xl absolute right-0" (click)="this.show = !this.show">select heroes</button>
+<div class="mt-16 overflow-y-scroll h-[80vh] rounded transition-all duration-200 -z-10" [ngClass]="{'': this.show, 'translate-x-[120%]': !this.show}">
+  <form [formGroup]="this.form" class="bg-white p-3" *ngFor="let role of this.roles">
+    <h2 class="text-3xl text-left">
+      {{ this.rolesDisplay[role] }}
+    </h2>
+    <ol class="z-50 rounded select-none grid lg:grid-cols-3 grid-cols-3 sm:w-auto w-screen bg-white">
+      <li *ngFor="let hero of this.heroesList[role]; let i = index" class="py-1 bg-white">
+        <label class="flex aling-middle">
+          <!-- TODO: style the checkbox -->
+          <input type="checkbox" [formControlName]="hero.shortName" class="scale-125">
+          <img [src]="this.hero.image" [alt]="hero + ' avatar'" class="inline-block ml-4 h-12 rounded">
+          <div class="text-xl px-2 ml-auto">{{ hero.name }}</div>
+
+        </label>
+      </li>
+    </ol>
+  </form>
+</div>

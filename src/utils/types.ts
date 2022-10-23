@@ -5,6 +5,8 @@ export type Hero = {
   image: string;
   background: string;
   role: Role;
+  shortName: string;
+  defaultOn: boolean;
 }
 
 export type Layout = '1-2-2' | Role;

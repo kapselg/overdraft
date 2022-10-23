@@ -15,5 +15,6 @@ module.exports = {
     },
   },
   mode: 'aot',
-  plugins: [],
+  plugins: [
+  ],
 }
