@@ -1,6 +1,6 @@
-import { Hero } from "./types";
+import { Hero, HeroListType } from "./types";
 
-export const heroesList: {support: Hero[], dps: Hero[], tank: Hero[]} = {
+export const heroesList: HeroListType = {
   support: [
     {
       name: 'Ana',
@@ -289,7 +289,7 @@ export const heroesList: {support: Hero[], dps: Hero[], tank: Hero[]} = {
   ]
 }
 
-export const heroesArr = (heroes: {support: Hero[], dps: Hero[], tank: Hero[]}) => Object.values(heroes).flat();
+export const heroesArr = (heroes: HeroListType) => Object.values(heroes).flat();
 
 
 

@@ -8,7 +8,6 @@ import { RandomizerService } from './randomizer/randomizer.service';
 })
 export class AppComponent {
 }
-//TODO: add option to disable unique heroes
 //TODO: allow selecting multiple roles in configurator
 //TODO: routing
 //TODO: mobile responsiveness

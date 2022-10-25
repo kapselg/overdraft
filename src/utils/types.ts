@@ -9,4 +9,6 @@ export type Hero = {
   defaultOn: boolean;
 }
 
+export type HeroListType = { [key: string]: Hero[] }
+
 export type Layout = '1-2-2' | Role;

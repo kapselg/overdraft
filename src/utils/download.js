@@ -316,4 +316,3 @@ function assignHeroesToRoles(){
   Object.values(heroes).forEach(hero=>roles[hero.role].push(hero));
 }
 assignHeroesToRoles();
-console.log(roles);

@@ -1,16 +1,28 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, map, Subject } from 'rxjs';
 import { heroesArr, heroesList } from 'src/utils/heroInfo';
-import { Hero, Layout, Role } from 'src/utils/types';
-
+import { Hero, HeroListType, Layout, Role } from 'src/utils/types';
+import { SettingsService } from './settings/settings.service';
+const emptyHero: Hero = {
+  name: '',
+  image: 'assets/any.svg',
+  background: '',
+  role: 'any',
+  shortName: '',
+  defaultOn: false
+};
 @Injectable({
   providedIn: 'root',
 })
 export class RandomizerService {
-  constructor() {}
+  constructor(private settingsService: SettingsService) {
+    this.settingsService.selectedHeroes.subscribe(val => this.heroesList = val);
+  }
 
-  heroes = new Subject<Hero[]>();
+  pickedHeroes = new Subject<(Hero)[]>();
   roles: Role[] = [];
+
+  heroesList: HeroListType = heroesList;
 
   singleMode = new BehaviorSubject<boolean>(true);
   configuratorMode = new BehaviorSubject<boolean>(false);
@@ -29,11 +41,11 @@ export class RandomizerService {
   setupConfigurator() {
     this.controls.next(true);
     this.roles = new Array(5).fill('any');
-    this.heroes.next(new Array(5).fill(''));
+    this.pickedHeroes.next(new Array(5).fill(''));
     this.configuratorMode.next(true);
   }
 
-  runConfigurator() {
+  runConfiguration() {
     const alreadyUsedHeroes: Hero[] = [];
 
     //filtering logic to avoid duplicate heroes
@@ -50,19 +62,22 @@ export class RandomizerService {
       if (desiredRole === 'any') {
         //pick from all roles if any
         result = this.randomHero(
-          Object.values(heroesArr(heroesList)).filter((hero) => checkAlreadyUsed(hero))
+          Object.values(heroesArr(this.heroesList)).filter((hero) => checkAlreadyUsed(hero))
         );
       } else {
         //otherwise pick from desired role
+
+        //check if there are any heroes in the role
+        if(this.heroesList[desiredRole].length === 0) return emptyHero;
         result = this.randomHero(
-          [...heroesList[desiredRole]].filter((hero) => checkAlreadyUsed(hero))
+          [...this.heroesList[desiredRole]].filter((hero) => checkAlreadyUsed(hero))
         );
       }
       alreadyUsedHeroes.push(result);
       return result;
     });
     this.configuratorMode.next(false);
-    this.heroes.next(newHeroes);
+    this.pickedHeroes.next(newHeroes);
   }
 
   changeRole(role: Role, index: number) {
@@ -75,25 +90,37 @@ export class RandomizerService {
     this.clear();
     const newHeroes = new Array();
 
-    newHeroes[0] = this.randomHero(heroesArr(heroesList));
+    newHeroes[0] = this.randomHero(heroesArr(this.heroesList));
 
-    this.heroes.next(newHeroes);
+    this.pickedHeroes.next(newHeroes);
   }
 
   generateDeck() {
     this.clear();
     const result: Hero[] = new Array();
 
-    result[0] = this.randomHero(heroesList.tank);
-    result[1] = this.randomHero(heroesList.dps);
-    result[2] = this.randomHero(
-      [...heroesList.dps].filter((hero) => hero.name !== result[1].name)
-    );
-    result[3] = this.randomHero(heroesList.support);
-    result[4] = this.randomHero(
-      [...heroesList.support].filter((hero) => hero.name !== result[3].name)
-    );
 
-    this.heroes.next(result);
+
+    result[0] = this.heroesList['tank'].length > 0 ? this.randomHero(this.heroesList['tank']) : emptyHero;
+
+    if(this.heroesList['dps'].length > 0){
+      result[1] = this.randomHero(this.heroesList['dps']);
+      result[2] = this.randomHero(
+        [...this.heroesList['dps']].filter((hero) => hero.name !== result[1].name)
+      );
+    } else {
+      result[1] = result[2] = emptyHero;
+    }
+
+    if(this.heroesList['support'].length > 0){
+    result[3] = this.randomHero(this.heroesList['support']);
+    result[4] = this.randomHero(
+      [...this.heroesList['support']].filter((hero) => hero.name !== result[3].name)
+    );
+    }else {
+      result[3] = result[4] = emptyHero;
+    }
+
+    this.pickedHeroes.next(result);
   }
 }
