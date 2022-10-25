@@ -315,4 +315,13 @@ function assignRoles() {
 function assignHeroesToRoles(){
   Object.values(heroes).forEach(hero=>roles[hero.role].push(hero));
 }
-assignHeroesToRoles();
+function listAllAssets(){
+  const filesList = [];
+  fs.readdir('./src/assets', (err, files) => {
+    console.log(files);
+  });
+
+  console.log(filesList);
+}
+
+listAllAssets();

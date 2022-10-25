@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { AppService } from './app.service';
 import { RandomizerService } from './randomizer/randomizer.service';
 
 @Component({
@@ -6,7 +8,7 @@ import { RandomizerService } from './randomizer/randomizer.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
 }
 //TODO: allow selecting multiple roles in configurator
 //TODO: routing
