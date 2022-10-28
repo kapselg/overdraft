@@ -1,5 +1,6 @@
-<button class="button text-center text-3xl absolute right-0" (click)="this.show = !this.show">select heroes</button>
-<div class="mt-16 overflow-y-scroll h-[80vh] rounded transition-all duration-200 -z-10" [ngClass]="{'': this.show, 'translate-x-[120%]': !this.show}">
+<button class="button text-center text-3xl absolute right-0 pointer-events-auto" (click)="this.show = !this.show">select heroes</button>
+<div class="mt-16 overflow-y-scroll h-[80vh] rounded transition-all duration-200 -z-10 pointer-events-none"
+[ngClass]="{'pointer-events-auto': this.show, 'translate-x-[120%] ': !this.show}">
   <form [formGroup]="this.form" class="bg-white p-3 relative" *ngFor="let role of this.roles">
     <button class="button text-center bg-white absolute right-0 -top-1 text-xl !text-blue-600" (click)="this.resetRoles(role)">reset selection</button>
     <h2 class="text-3xl text-left">

@@ -11,7 +11,7 @@ import { SettingsService } from '../settings.service';
 })
 export class HeroListComponent implements OnInit {
   heroesList = heroesList;
-  show = true;
+  show = false;
 
   constructor(private settingsService: SettingsService) {
     const formControls: { [key: string]: FormControl } = {};
