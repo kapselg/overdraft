@@ -82,7 +82,7 @@ export const heroesList: HeroListType = {
       background: '',
       role: 'dps',
       shortName: 'bastion',
-      defaultOn: false
+      defaultOn: true
     },
     {
       name: 'Cassidy',

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { heroesList, heroesArr } from 'src/utils/heroInfo';
-import { Hero } from 'src/utils/types';
 import { SettingsService } from '../settings.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class HeroListComponent implements OnInit {
 
   constructor(private settingsService: SettingsService) {
     const formControls: { [key: string]: FormControl } = {};
-    Object.values(heroesArr(heroesList)).forEach(value => {
+    heroesArr(heroesList).forEach(value => {
       formControls[value.shortName] = new FormControl(
         value.defaultOn
       );

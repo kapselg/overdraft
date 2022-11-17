@@ -62,7 +62,7 @@ export class RandomizerService {
       if (desiredRole === 'any') {
         //pick from all roles if any
         result = this.randomHero(
-          Object.values(heroesArr(this.heroesList)).filter((hero) => checkAlreadyUsed(hero))
+        heroesArr(this.heroesList).filter((hero) => checkAlreadyUsed(hero))
         );
       } else {
         //otherwise pick from desired role
