@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ov-random:build:production"
+              "buildTarget": "ov-random:build:production"
             },
             "development": {
-              "browserTarget": "ov-random:build:development"
+              "buildTarget": "ov-random:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ov-random:build"
+            "buildTarget": "ov-random:build"
           }
         },
         "test": {
