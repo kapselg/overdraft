@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { heroesList, heroesArr } from 'src/utils/heroInfo';
 import { SettingsService } from '../settings.service';
 
@@ -13,13 +13,13 @@ export class HeroListComponent implements OnInit {
   show = false;
 
   constructor(private settingsService: SettingsService) {
-    const formControls: { [key: string]: FormControl } = {};
+    const formControls: { [key: string]: UntypedFormControl } = {};
     heroesArr(heroesList).forEach(value => {
-      formControls[value.shortName] = new FormControl(
+      formControls[value.shortName] = new UntypedFormControl(
         value.defaultOn
       );
     });
-    this.form = new FormGroup(formControls);
+    this.form = new UntypedFormGroup(formControls);
   }
 
   ngOnInit(): void {
@@ -52,5 +52,5 @@ export class HeroListComponent implements OnInit {
     support: 'Healers:',
   };
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 }
