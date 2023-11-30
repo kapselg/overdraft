@@ -1,10 +1,22 @@
-<button class="button text-center text-3xl absolute right-0 pointer-events-auto" 
-  (click)="this.show = !this.show">
+<button
+  class="button text-center text-3xl float-right pointer-events-auto"
+  (click)="this.show = !this.show"
+>
   select heroes
 </button>
-<div [ngClass]="{'pointer-events-auto': this.show, 'translate-x-[120%] ': !this.show}"
-  class="mt-16 overflow-y-scroll h-[80vh] rounded transition-all duration-200 -z-10 pointer-events-none">
-  <form [formGroup]="this.form" class="bg-white p-3 relative" *ngFor="let role of this.roles">
+<div class="w-full h-16"></div>
+<div
+  [ngClass]="{
+    'pointer-events-auto': this.show,
+    'translate-x-[180%]': !this.show
+  }"
+  class="overflow-y-auto h-[80vh] rounded transition-all duration-200 pointer-events-none absolute right-0 z-50"
+>
+  <form
+    [formGroup]="this.form"
+    class="bg-white p-3 relative"
+    *ngFor="let role of this.roles"
+  >
     <div class="absolute right-0 -top-1 flex">
       <button class="button action-button" (click)="this.selectAll(role)">
         select all
@@ -17,12 +29,25 @@
     <h2 class="text-3xl text-left">
       {{ this.rolesDisplay[role] }}
     </h2>
-    <ol class="z-50 rounded select-none grid lg:grid-cols-3 grid-cols-3 sm:w-auto w-screen bg-white">
-      <li *ngFor="let hero of this.heroesList[role]; let i = index" class="py-1 bg-white">
+    <ol
+      class="z-50 rounded select-none grid lg:grid-cols-3 grid-cols-3 bg-white"
+    >
+      <li
+        *ngFor="let hero of this.heroesList[role]; let i = index"
+        class="py-1 bg-white"
+      >
         <label class="flex aling-middle">
           <!-- TODO: style the checkbox -->
-          <input type="checkbox" [formControlName]="hero.shortName" class="scale-125">
-          <img [src]="this.hero.image" [alt]="hero + ' avatar'" class="inline-block ml-4 h-12 rounded">
+          <input
+            type="checkbox"
+            [formControlName]="hero.shortName"
+            class="scale-125"
+          />
+          <img
+            [src]="this.hero.image"
+            [alt]="hero + ' avatar'"
+            class="inline-block ml-4 h-12 rounded"
+          />
           <div class="text-xl px-2 ml-auto">{{ hero.name }}</div>
         </label>
       </li>
