@@ -30,19 +30,21 @@ export class HeroListComponent implements OnInit {
     );
   }
 
-  resetRoles(role: string): void{
-    const newFormValue: {[key: string]: any} = {...this.form.value};
-    //list of hero names in role
-    const freshHeroDefaultList = this.heroesList[role].map(hero => hero.defaultOn);
-    //and list of their default state (enabled or disabled)
-    const freshHeroNamesList = this.heroesList[role].map(hero => hero.shortName);
-    Object.entries(this.form.value).forEach(([key,val])=>{
-      //check if hero is in role
-      let index = freshHeroNamesList.indexOf(key)
-      if(index !== -1) newFormValue[key] = freshHeroDefaultList[index];
-    })
-
+  selectAll(role: string): void {
+    const newFormValue: { [key: string]: any } = { ...this.form.value };
+    this.heroesList[role].forEach((hero) => {
+      newFormValue[hero.shortName] = true;
+    });
     this.form.setValue(newFormValue);
+  }
+
+  deselectAll(role: string): void {
+    const newFormValue: { [key: string]: any } = { ...this.form.value };
+    this.heroesList[role].forEach((hero) => {
+      newFormValue[hero.shortName] = false;
+    });
+    this.form.setValue(newFormValue);
+
   }
 
   roles: ['tank', 'dps', 'support'] = ['tank', 'dps', 'support'];
